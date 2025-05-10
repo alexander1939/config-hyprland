@@ -1,0 +1,29 @@
+window {
+    margin: 0px;
+    border: 2px solid #1db954;
+    background-color: rgba(20, 20, 20, 0.95);
+    border-radius: 12px;
+    font-family: "Fira Code", monospace;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+#input {
+    margin: 10px;
+    border: none;
+    background-color: rgba(40, 40, 40, 0.9);
+    padding: 8px;
+    border-radius: 8px;
+    color: #ffffff;
+}
+
+#entry {
+    padding: 6px 10px;
+    margin: 4px;
+    border-radius: 8px;
+}
+
+#entry:selected {
+    background-color: #1db954;
+    color: #000000;
+}

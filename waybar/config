@@ -1,0 +1,133 @@
+{
+    "layer": "top",
+    "width": 1888,
+    "margin-top": 5,
+    "margn-bottom": 0,
+
+
+	"modules-left": ["custom/launcher","disk","hyprland/workspaces"],
+	"modules-center": ["clock"],
+	"modules-right": ["battery","custom/mic","pulseaudio", "bluetooth","network","custom/power"],
+	
+  
+    "pulseaudio": {
+		"tooltip": false,
+		"scroll-step": 5,
+		"format": "{icon} {volume}%",
+		"format-muted":"<span color='#f7768e'> </span>",
+		"on-click":"pactl set-sink-mute @DEFAULT_SINK@ toggle",
+		"format-icons": {
+			"default": [
+                "<span color='#7aa2f7'> </span>", 
+                "<span color='#7aa2f7'> </span>", 
+                "<span color='#7aa2f7'> </span>"
+            ]
+		}
+	},
+
+    "custom/mic": {
+        "format": "{}",
+        "tooltip": false,
+        "interval": 3,
+        "exec": "MIC=$(pactl get-source-volume @DEFAULT_SOURCE@ | awk '/Volume: front-left/ {print $5}'); MUTE=$(pactl get-source-mute @DEFAULT_SOURCE@); if [[ $MUTE == *'yes'* ]]; then echo '{\"text\": \"<span color=\\\"#ff0000\\\"></span>\", \"class\": \"muted\"}'; else echo '{\"text\": \"<span color=\\\"#9ece6a\\\"></span> <span color=\\\"#FFFFFF\\\">'${MIC}'</span>\", \"class\": \"unmuted\"}'; fi",
+        "return-type": "json",
+        "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+    },
+
+    "hyprland/workspaces": {
+		"disable-scroll": true,
+        "on-click": "activate",
+        "all-outputs": true,
+        "active-only": false,
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": []
+        },
+        "format": "{icon}",
+        "format-icons": {
+            "active": "<span font='12'>󰮯</span>",
+            "empty": "<span font='8'></span>",
+            "persistent": "󰊠"
+        }
+    },
+
+
+    "network": {
+    "interface": "wlan0", 
+    "interval": 10,
+    "tooltip": false,
+    "format-wifi": "{icon}",
+    "format-ethernet": "",
+    "format-disconnected": "",
+    "format-icons": [
+        "󰤯",  
+        "󰤟",  
+        "󰤢",  
+        "󰤥",  
+        "󰤨"   
+        ]
+    },
+
+	"backlight": {
+		"tooltip": false,
+		"format": " {}%",
+		"interval":1,
+        "on-scroll-up": "light -A 5",
+		"on-scroll-down": "light -U 5"
+	},
+
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 10
+        },
+        "format": "{icon}  <span color='#F1F1F1'>{capacity}%</span>",
+        "format-charging": "<span color='#9ece6a'></span> <span color='#F1F1F1'>{capacity}%</span>",
+        "format-plugged": " <span color='#F1F1F1'>{capacity}</span>%",
+        "format-alt": "<span color='#F1F1F1'>{time}</span> {icon}",
+        "format-icons": [
+            "<span color='#f7768e'></span>", 
+            "<span color='#e0af68'></span>", 
+            "<span color='#e0af68'></span>", 
+            "<span color='#9ece6a'></span>", 
+            "<span color='#9ece6a'></span>"
+        ]
+    },
+
+	"clock": {
+        "tooltip": true,
+        "interval": 60,
+        "format": "{:%I:%M %p | %d-%m-%Y}"
+    },
+
+    "disk": {
+        "format": "<span color='#e0af68'> </span> {used}",
+        "interval": 1
+    },
+    "custom/power":{
+        "format": "<span color='#f7768e'>⏻</span>",
+        "on-click": "wlogout"
+    },
+
+
+    "bluetooth": {
+    "format": "{icon}",
+    "format-icons": {
+        "enabled": "",
+        "disabled": "󰂲",
+        "connected": "󰂱"
+    },
+    "on-click": "rfkill toggle bluetooth",
+    "on-click-right": "blueman-manager"
+    },
+
+    "custom/updates":{
+        "format": "{} Update(s)",
+        "exec": "checkupdates | wc -l",
+        "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
+        "interval": 15,
+        "on-click": "alacritty -e paru -Syu && notify-send 'The system has been updated' "
+        }
+    }

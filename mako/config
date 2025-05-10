@@ -1,0 +1,36 @@
+# Configuración básica
+font=JetBrainsMono Nerd Font 12
+anchor=top-right
+width=600
+height=100
+margin=20
+padding=10
+border-size=2
+border-radius=12
+
+# Colores (formato #RRGGBBAA)
+background-color=#1a1b26DD
+text-color=#c0caf5FF
+border-color=#7aa2f7FF
+
+# Tiempos y comportamiento
+default-timeout=5000
+ignore-timeout=false
+
+# Iconos
+icon-path=/usr/share/icons
+max-icon-size=48
+
+# Urgencia baja
+[urgency=low]
+border-color=#7dcfffFF
+
+# Urgencia normal
+[urgency=normal]
+border-color=#bb9af7FF
+
+# Urgencia crítica
+[urgency=critical]
+border-color=#f7768eFF
+background-color=#1f1f1fDD
+text-color=#f7768eFF

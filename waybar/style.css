@@ -1,0 +1,251 @@
+* {	
+	border: none;
+	border-radius: 10px;
+	font-family: "JetBrainsMono Nerd Font", monospace;
+	font-size: 15px;
+	min-height: 10px;
+}
+
+
+/* window styles  */
+
+window#waybar {
+	background-color: transparent;
+    border-radius: 15px;
+    margin-top: 6px;
+}
+
+window#waybar.hidden {
+	opacity: 0.2;
+}
+
+#window {
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 10px;
+	transition: none;
+    color: transparent;
+	background: transparent;
+}
+
+#workspaces {
+    margin: 2px 2px 2px 2px;
+    border-radius: 18px;
+    background: #222330;
+    transition: none;
+    padding-left: 8px;
+    padding-right: 4px;
+}
+
+#workspaces button {
+	transition: none;
+	color: #B5E8E6;
+	background: transparent;
+}
+
+#workspaces button.persistent {
+    transition: none;
+    color: #7aa2f7;
+    background: transparent;
+    font-size: 4px;
+	margin-right: 0px;
+}
+
+#workspaces button.empty {
+	color: #583794;
+    font-size: 2px;
+    transition: none;
+    background: transparent;
+}
+
+#workspaces button.active {
+	transition: none;
+	color: #e0af68;
+	background: transparent;
+	font-size: 4px;
+}
+
+#pulseaudio, #custom-mic {
+    background: #222330;
+    border-radius: 0;
+    margin: 2px 0 2px 0;  
+    padding: 0 12px;     
+    font-size: 14px;
+}
+
+
+
+#pulseaudio {
+    border-top-right-radius: 18px;
+    border-bottom-right-radius: 18px;
+    padding-right: 15px;   
+    margin-right: 2px; 
+	color: white;
+}
+
+
+#custom-mic {
+	border-top-left-radius: 18px;
+    border-bottom-left-radius: 18px;
+    padding-left: 15px;   
+    margin-left: 2px;
+	font-size: 16px;
+}
+
+#custom-mic.unmuted {
+    color: #9ece6a;  /* Color del ícono (verde) */
+}
+
+
+#custom-mic.muted {
+    color: #ff0000;  /* Rojo cuando está muteado */
+}
+
+
+#battery {
+	margin: 2px 2px 2px 2px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 18px;
+	transition: none;
+    font-size: 14px;
+    font-weight: bold;
+	color: #161320;
+	background: #222330;
+}
+
+#battery.charging, #battery.plugged {
+	color: #161320;
+    background-color: #161320;
+}
+
+#battery.critical:not(.charging) {
+    background-color: #B5E8E0;
+    color: #161320;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    to {
+        color: #B5E8E0;
+    }
+}
+
+#backlight {
+	margin: 2px 2px 2px 2px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 10px;
+	transition: none;
+	color: #161320;
+	background: #F8BD96;
+}
+
+#clock {
+	margin: 2px 2px 2px 2px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 18px;
+	transition: none;
+    font-size: 14px;
+    font-weight: bold;
+	color: #F1F1F1;
+	background: #222330;
+}
+
+#disk {	
+	margin: 2px 2px 2px 2px;  
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 18px;
+	font-size: 14px;
+	font-weight: bold;
+	transition: none;
+	color: #F1F1F1;
+	background: #222330;
+
+}
+
+
+#tray {
+	margin: 2px 2px 2px 2px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 10px;
+	transition: none;
+	color: #B5E8E0;
+	background: #161320;
+}
+
+#custom-launcher {
+	font-size: 18px;
+	margin-left: 8px;
+	padding-left: 10px;
+	padding-right: 5px;
+	border-radius: 10px;
+	transition: none;
+    color: #7dcfff;
+    background: transparent;
+}
+
+
+#network, #custom-power, #bluetooth {
+    background: #222330;
+    border-radius: 0;
+    margin: 2px 0 2px 0;  
+    padding: 0 12px;     
+    font-size: 14px;
+}
+
+#network {
+
+	color: #9ece6a;
+    margin-left: 0px;      
+}
+
+#network.disconnected {
+    color: #f7768e; 
+}
+#network.ethernet{
+	color: #e0af68;
+}
+
+#custom-power {
+    border-top-right-radius: 18px;
+    border-bottom-right-radius: 18px;
+    padding-right: 15px;   
+    margin-right: 2px;    
+}
+
+#bluetooth{
+    border-top-left-radius: 18px;
+    border-bottom-left-radius: 18px;
+	color: #FFFFFF;
+    padding-left: 15px;   
+    margin-left: 2px;
+	font-size: 16px;
+
+}
+
+#bluetooth.disabled{
+	border-top-left-radius: 18px;
+    border-bottom-left-radius: 18px;
+	color: red;
+    padding-left: 15px;   
+    margin-left: 2px;
+}
+
+#custom-updates {
+	margin: 2px 2px 2px 2px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 10px;
+	transition: none;
+	color: #161320;
+	background: #E8A2AF;
+}
+

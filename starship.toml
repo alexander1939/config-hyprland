@@ -1,0 +1,36 @@
+# icono del prompt
+[character]
+success_symbol = "[➜](bold green)"
+error_symbol = "[✗](bold red)"
+
+# directorio
+[directory]
+style = "blue bold"
+read_only = " 🔒"
+
+# git
+[git_branch]
+symbol = "🌱 "
+style = "yellow"
+
+[git_status]
+style = "red"
+modified = "📝 "
+deleted = "❌ "
+staged = '[++\($count\)](green)'
+untracked = '[?](cyan)'
+
+
+[username]
+disabled = false
+format = " [$user]($style_user) " 
+style_user = "bold green"
+show_always = true
+
+[time]
+disabled = false
+format = "🕙 [$time]($style) "
+time_format = "%H:%M"  # 24h formato
+style = "bold yellow"
+
+
